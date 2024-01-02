@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Groupe tracker</title>
+        <link rel="stylesheet" href="css/style.css">
+        <script src="script/aboutArtists.js" defer></script>
+    </head>
+    <body>
+        <header>
+            <h1>Groupie tracker</h1>
+            <h3>Select your favourite band</h3>
+        </header>
+        <body>
+            <div class="artistBoxes">
+                {{ range . }}
+                <div class="artistBox" href="/{{.Id}}">
+                    <h2>{{ .Name}}</h2>
+                    <img src="{{.Image}}">
+                    <br></br>
+                 <!--  <a href="/{{.Id}}" class="button">Read more</a> -->  
+<!--
+                    <div class="hide">
+                        <p>Members: </p>
+                        <ul>
+                            {{ range .Members}}
+                            <li>{{ . }}</li>
+                            {{ end }}
+                        </ul>
+                        <p>Created {{.CreationDate}}</p>
+                        <p>First album: {{.FirstAlbum}}</p> 
+                    </div>
+                -->
+            </div>
+            <dialog id="modal">
+                <div id="modal-content"> 
+                    <br>
+                    <h2>{{.Name}}</h2>
+                    <img src="{{.Image}}">
+                    <p>Created in {{.CreationDate}}</p>
+
+            <div class="membersAndConcert-container">
+                <div class="membersAndConcert-child">
+                    <h3>Members: </h3>
+                        <ul>
+                            {{ range .Members}}
+                                <li>{{ . }}</li>
+                            {{ end }}
+                        </ul>
+                </div>
+                <div class="membersAndConcert-child">
+                    <h3>Concert dates: </h3>
+                        <ul>
+                        {{ range .DatesLocations}}
+                            <ul>
+                                {{ range . }}
+                                    <li>{{ . }}</li>
+                                {{ end }}
+                            </ul>
+                        {{ end }}
+                    </ul>
+                </div>
+            </div>
+
+            <p>First album: {{.FirstAlbum}}</p> 
+            <br>
+            <br>
+            </div>
+            </dialog>            
+                {{ end }}
+            </div>
+        </body>
+    </body>
+</html>

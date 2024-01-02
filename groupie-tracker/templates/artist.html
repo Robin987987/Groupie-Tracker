@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Groupe tracker</title>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <h2>{{.Name}}</h2>
+        <h3>Concert dates</h3>
+        <ul>
+            {{range .DatesLocations}}
+            <li>
+                <ul>{{ range .}}
+                    <li>{{.}}</li>
+                    {{ end }}
+                </ul>
+            </li>
+            {{ end }}
+        </ul>
+    </body>
+</html>
